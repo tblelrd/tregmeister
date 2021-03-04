@@ -2,7 +2,7 @@ import { Client } from 'discord.js';
 import http from 'http';
 import { Public } from '../types/types';
 
-export default (bot: Client, Public: Public) => {
+export default (_bot: Client, Public: Public) => {
     let connectedAmount = 0;
     const server = http.createServer((req: any, res: any) => {
         const timeUp = Math.floor((Date.now() - (Public.startDate ?? 0)) / 1000);

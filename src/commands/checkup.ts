@@ -15,7 +15,7 @@ export = {
     expectedArgs: '<username>',
     maxArgs: 1,
     minArgs: 1,
-    callback: async (msg: Message, args: Array<string>, bot: Client, Public: Public, users: Array<user>) => {
+    callback: async (msg: Message, args: Array<string>, _bot: Client, _Public: Public, users: Array<user>) => {
         const user = users.find(user => user.username.toLowerCase() == args[0].toLowerCase());
         if(!user) return msg.reply('They aren\'t in out database!');
 

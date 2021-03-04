@@ -18,7 +18,7 @@ export = {
     expectedArgs: '<username>',
     minArgs: 1,
     maxArgs: 1,
-    callback: async (msg: Message, args: Array<string>, bot: Client, Public: Public, users: Array<user>) => {
+    callback: async (msg: Message, args: Array<string>, _bot: Client, _Public: Public, _users: Array<user>) => {
         const uuid = await MC.uuidForName(args[0]);
         const name = await MC.nameForUuid(uuid);
 

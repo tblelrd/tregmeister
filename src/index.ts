@@ -1,8 +1,8 @@
 import Discord from 'discord.js';
 import mongoose from 'mongoose';
 
-import registerCommands from './utils/register';
 import { Public } from './types/types';
+import registerCommands from './utils/register';
 import background from './backgroundtasks/background';
 import web from './backgroundtasks/web';
 
