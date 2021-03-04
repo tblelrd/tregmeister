@@ -10,6 +10,12 @@ export default (bot: Client, Public: Public) => {
         res.end('Pinged: ' + connectedAmount.toString() + '\n' +
          `Bot running for ${STMSS(timeUp)} (Hour:Min:Sec)`);
     })
+    
+    server.on('connection', (_socket: any) => {
+        connectedAmount++;
+    });
+    server.listen(3000);
+
 };
 
 
