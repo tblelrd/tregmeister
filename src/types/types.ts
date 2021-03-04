@@ -1,5 +1,6 @@
 export interface Public {
     users: Array<user>;
+    startDate: number | undefined,
 }
 
 export type user = {
