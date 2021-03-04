@@ -19,4 +19,10 @@ bot.on('ready', () => {
     console.log(`Logged in as ${bot.user?.username}`);
 });
 
-bot.login(token);
+
+const Database = require("@replit/database");
+const db = new Database();
+
+db.get("token").then((token: string) => {
+	bot.login(token);
+});
