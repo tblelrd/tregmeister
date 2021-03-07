@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { MessageEmbed, NewsChannel } from "discord.js";
 import { stats } from "../types/types";
 
 const makeEmbedFromStats = (initial: stats, stats: stats, username: string, uuid: string): MessageEmbed => {
@@ -24,8 +24,9 @@ const makeEmbedFromStats = (initial: stats, stats: stats, username: string, uuid
     .addField('Coins earned', newStats.coins)
     .addField('Experience gained', newStats.Experience)
     .addField('kdr', ratio(newStats.kills_bedwars, newStats.deaths_bedwars))
+    .addField('fkdr', ratio(newStats.final_kills_bedwars, newStats.final_deaths_bedwars))
     .addField('wlr', ratio(newStats.wins_bedwars, newStats.losses_bedwars))
-    .addField('fkdr', ratio(newStats.final_kills_bedwars, newStats.final_deaths_bedwars));
+    .addField('bblr', ratio(newStats.beds_broken_bedwars, newStats.beds_lost_bedwars));
 
     return e;
 }
