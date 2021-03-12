@@ -26,7 +26,7 @@ const check = async (bot: Client) => {
             author?.send(makeEmbedFromStats(user.initialStats, stats, user.username, user.uuid));
 
             console.log(user.uuid);
-            userModel.findOneAndUpdate({ uuid: user.uuid }, {
+            const whatever: any = await userModel.findOneAndUpdate({ uuid: user.uuid }, {
                 $push: {
                     checkup: {
                         stats: stats,
@@ -38,6 +38,7 @@ const check = async (bot: Client) => {
                 }
             })
             .then(() => console.log('Updated'));
+            console.log(whatever);
         }
     }
 
