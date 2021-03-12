@@ -22,7 +22,7 @@ const check = async (bot: Client) => {
             const playerInfo: PlayerInfo = await client.getPlayerByUsername(user.username);
             const stats = getStats(playerInfo.stats.Bedwars);
 
-            const author = bot.users.fetch(user.userID);   
+            const author = await bot.users.fetch(user.userID);   
             author?.send(makeEmbedFromStats(user.initialStats, stats, user.username, user.uuid));
 
             console.log(user.uuid);
