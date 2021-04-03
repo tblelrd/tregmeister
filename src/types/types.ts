@@ -8,7 +8,10 @@ export type user = {
     username: string,
     started: number,
     initialStats: stats,
-    checkups: Array<stats>,
+    checkups: {
+        stats: stats,
+        date: Date,
+    }[],
     userID: string,
     date: number,
 }

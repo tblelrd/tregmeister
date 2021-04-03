@@ -22,11 +22,12 @@ const check = async (bot: Client) => {
             const playerInfo: PlayerInfo = await client.getPlayerByUsername(user.username);
             const stats = getStats(playerInfo.stats.Bedwars);
 
+
             const author = await bot.users.fetch(user.userID);   
-            author?.send(makeEmbedFromStats(user.initialStats, stats, user.username, user.uuid));
+            author?.send(makeEmbedFromStats(user.checkups[user.checkups.length - 1].stats, stats, user.username, user.uuid, user.checkups[user.checkups.length - 1].date));
 
             console.log(user.uuid);
-            const whatever: any = await userModel.findOneAndUpdate({ uuid: user.uuid }, {
+            const whatever = await userModel.findOneAndUpdate({ uuid: user.uuid }, {
                 $push: {
                     checkups: {
                         stats: stats,

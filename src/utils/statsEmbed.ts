@@ -1,7 +1,7 @@
 import { MessageEmbed, NewsChannel } from "discord.js";
 import { stats } from "../types/types";
 
-const makeEmbedFromStats = (initial: stats, stats: stats, username: string, uuid: string): MessageEmbed => {
+const makeEmbedFromStats = (initial: stats, stats: stats, username: string, uuid: string, time?: Date): MessageEmbed => {
     const e = new MessageEmbed();
 
     const newStats: stats = {
@@ -27,6 +27,8 @@ const makeEmbedFromStats = (initial: stats, stats: stats, username: string, uuid
     .addField('fkdr', ratio(newStats.final_kills_bedwars, newStats.final_deaths_bedwars))
     .addField('wlr', ratio(newStats.wins_bedwars, newStats.losses_bedwars))
     .addField('bblr', ratio(newStats.beds_broken_bedwars, newStats.beds_lost_bedwars));
+
+    if(time) e.setTimestamp(time);
 
     return e;
 }
