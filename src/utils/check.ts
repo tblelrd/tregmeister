@@ -28,7 +28,7 @@ const check = async (bot: Client) => {
             console.log(user.uuid);
             const whatever: any = await userModel.findOneAndUpdate({ uuid: user.uuid }, {
                 $push: {
-                    checkup: {
+                    checkups: {
                         stats: stats,
                         date: Date.now(),
                     },
